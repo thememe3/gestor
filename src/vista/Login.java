@@ -34,8 +34,8 @@ public class Login extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jbnAcceder = new javax.swing.JButton();
         jbnAceptar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        logoUtj = new javax.swing.JLabel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -50,48 +50,44 @@ public class Login extends javax.swing.JFrame {
 
         jbnAceptar.setText("Cancelar");
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 3, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 179, 141));
-        jLabel2.setText("Universidad Técologica de Jalisco");
-
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 3, 48)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 179, 141));
-        jLabel3.setText("UTJ");
+        logoUtj.setIcon(new javax.swing.ImageIcon("/home/devr/Downloads/rsz_logo_utj_top.png")); // NOI18N
 
         javax.swing.GroupLayout fondoLoginLayout = new javax.swing.GroupLayout(fondoLogin);
         fondoLogin.setLayout(fondoLoginLayout);
         fondoLoginLayout.setHorizontalGroup(
             fondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLoginLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(fondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(fondoLoginLayout.createSequentialGroup()
-                        .addComponent(jbnAcceder)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                        .addComponent(jbnAceptar))
-                    .addComponent(jLabel1)
-                    .addComponent(jlbUsuario)
-                    .addComponent(jtfUsuario)
-                    .addComponent(jTextField1))
-                .addGap(99, 99, 99))
             .addGroup(fondoLoginLayout.createSequentialGroup()
-                .addGap(81, 81, 81)
                 .addGroup(fondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLoginLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3)
-                        .addGap(70, 70, 70)))
-                .addContainerGap(77, Short.MAX_VALUE))
+                    .addGroup(fondoLoginLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(logoUtj)
+                        .addGap(143, 143, 143)
+                        .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(fondoLoginLayout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addGroup(fondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(fondoLoginLayout.createSequentialGroup()
+                                .addComponent(jbnAcceder)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jbnAceptar))
+                            .addComponent(jLabel1)
+                            .addComponent(jlbUsuario)
+                            .addComponent(jtfUsuario)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         fondoLoginLayout.setVerticalGroup(
             fondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoLoginLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addGroup(fondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoLoginLayout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(82, 82, 82))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fondoLoginLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(logoUtj, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)))
                 .addComponent(jlbUsuario)
                 .addGap(18, 18, 18)
                 .addComponent(jtfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -103,10 +99,10 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(fondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbnAcceder)
                     .addComponent(jbnAceptar))
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        getContentPane().add(fondoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 430));
+        getContentPane().add(fondoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -148,13 +144,13 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel fondoLogin;
+    private javax.swing.JDesktopPane jDesktopPane1;
     public javax.swing.JLabel jLabel1;
-    public javax.swing.JLabel jLabel2;
-    public javax.swing.JLabel jLabel3;
     public javax.swing.JTextField jTextField1;
     public javax.swing.JButton jbnAcceder;
     public javax.swing.JButton jbnAceptar;
     public javax.swing.JLabel jlbUsuario;
     public javax.swing.JTextField jtfUsuario;
+    private javax.swing.JLabel logoUtj;
     // End of variables declaration//GEN-END:variables
 }

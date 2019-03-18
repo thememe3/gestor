@@ -1,24 +1,56 @@
 package vista;
-public class CuentaAlumno extends javax.swing.JInternalFrame {
 
+import java.awt.Point;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.Vector;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import modelo.alumno;
+
+public class CuentaAlumno extends javax.swing.JInternalFrame implements MouseListener{
+
+    public DefaultTableModel control = new DefaultTableModel();
+    
     public CuentaAlumno() {
         initComponents();
+        jtbCuentaAlumno.addMouseListener(this);
+        jtbCuentaAlumno.setModel(control);
+        
     }
+    
+    public void llenarTabla(Vector<String> titulos,Vector<alumno> datos){
+        
+        for (String titulo : titulos){
+            control.addColumn(titulo);//con esto llena los titulos de la tabla
+        }
+        
+        for (alumno dato : datos) {
+            control.addRow(dato.toArray());
+        }
+        
+        
+    
+
+    }
+    
+     
+     
+     
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jlbBuscaAl = new javax.swing.JLabel();
         jtfBuscarCuentaAlumno = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbCuentaAlumno = new javax.swing.JTable();
         jbnActualizarCueAlum = new javax.swing.JButton();
         jbnBajaCueAlum = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel1.setText("Buscar");
+        jlbBuscaAl.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jlbBuscaAl.setText("Buscar");
 
         jtfBuscarCuentaAlumno.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
 
@@ -36,37 +68,30 @@ public class CuentaAlumno extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jtbCuentaAlumno);
 
         jbnActualizarCueAlum.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jbnActualizarCueAlum.setText("Actualizar");
+        jbnActualizarCueAlum.setText("Reiniciar Password");
 
         jbnBajaCueAlum.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jbnBajaCueAlum.setText("Baja");
-
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel4.setText("Gestión de Cuentas - Alumnos");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jtfBuscarCuentaAlumno)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(71, 71, 71)
-                                .addComponent(jbnActualizarCueAlum)
-                                .addGap(93, 93, 93)
-                                .addComponent(jbnBajaCueAlum, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(jLabel4)))
+                .addGap(110, 110, 110)
+                .addComponent(jbnActualizarCueAlum)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbnBajaCueAlum, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(111, 111, 111))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(38, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jlbBuscaAl, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtfBuscarCuentaAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -75,18 +100,17 @@ public class CuentaAlumno extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtfBuscarCuentaAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
+                    .addComponent(jtfBuscarCuentaAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlbBuscaAl, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbnActualizarCueAlum)
                     .addComponent(jbnBajaCueAlum, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jbnActualizarCueAlum, jbnBajaCueAlum});
@@ -96,12 +120,41 @@ public class CuentaAlumno extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton jbnActualizarCueAlum;
-    private javax.swing.JButton jbnBajaCueAlum;
-    private javax.swing.JTable jtbCuentaAlumno;
-    private javax.swing.JTextField jtfBuscarCuentaAlumno;
+    public javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JButton jbnActualizarCueAlum;
+    public javax.swing.JButton jbnBajaCueAlum;
+    public javax.swing.JLabel jlbBuscaAl;
+    public javax.swing.JTable jtbCuentaAlumno;
+    public javax.swing.JTextField jtfBuscarCuentaAlumno;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+       JTable click=(JTable)e.getSource();//creamos la variable que escuchará cuando demos click sobre la tabla       
+       if (click.equals(jtbCuentaAlumno)) {
+           String nombre=(String)jtbCuentaAlumno.getValueAt(jtbCuentaAlumno.getSelectedRow(), 1);
+           String pass=(String)jtbCuentaAlumno.getValueAt(jtbCuentaAlumno.getSelectedRow(), 4);
+           
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+       
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+       
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+       
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+       
+    }
 }

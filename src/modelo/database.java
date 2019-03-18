@@ -25,49 +25,55 @@ public database(){
     }
 
 public Connection conectarBD(){
+// Librería de MySQL
+    String driver = "com.mysql.jdbc.Driver";
+    // Nombre de la base de datos
+    String database = "SGPC";
+    // Host
+    String hostname = "localhost";
+    // Puerto
+    String port = "3306";
+    // Ruta de nuestra base de datos (desactivamos el uso de SSL con "?useSSL=false")
+    String url = "jdbc:mysql://" + hostname + ":" + port + "/" + database + "?useSSL=false";
+    // Nombre de usuario
+    String username = "root";
+    // Clave de usuario
+    String password = "";
+    Connection conn = null;
 
-       try {
-            //Driver JDBC
-            Class.forName("com.mysql.jdbc.Driver");
-            //Nombre del servidor. localhost:3306 es la ruta y el puerto de la conexión MySQL
-            //panamahitek_text es el nombre que le dimos a la base de datos
-            String servidor = "jdbc:mysql://localhost:3306/proyecto";
-            //El root es el nombre de usuario por default. No hay contraseña
-            String usuario = "root";
-            String pass = "";
-            //Se inicia la conexión
-            conn = DriverManager.getConnection(servidor, usuario, pass);
- 
-        } catch (ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, ex, "Error en la conexión a la base de datos: " + ex.getMessage(), JOptionPane.ERROR_MESSAGE);
-            conn = null;
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex, "Error en la conexión a la base de datos: " + ex.getMessage(), JOptionPane.ERROR_MESSAGE);
-            conn = null;
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, ex, "Error en la conexión a la base de datos: " + ex.getMessage(), JOptionPane.ERROR_MESSAGE);
-            conn = null;
-        } finally {
-            JOptionPane.showMessageDialog(null, "Conexión Exitosa");
-            return conn;
+        try {
+            Class.forName(driver);
+            conn = DriverManager.getConnection(url, username, password);
+            setConn(conn);
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
         }
+        
+        
+        return conn;
     }
+
+    
 
 
 public void actualizar(String query){ //recibe la consulta
     Statement sm;
+    boolean resultado;
     try {
         sm =conn.createStatement();
-        sm.executeQuery(query);
+        sm.executeUpdate(query);
+        
     } catch (SQLException e) {
         JOptionPane.showMessageDialog(null,"Error en la acción"+e.getMessage());
+        
     }
+    
 }
 
 public ResultSet consultar(String query){
     Statement sm;//statemen crea la sentencia
     ResultSet datos = null; //se almacena la respuesta
-    try {
+    try {   
         sm = conn.createStatement();
         datos = sm.executeQuery(query);
     } catch (SQLException e) {
