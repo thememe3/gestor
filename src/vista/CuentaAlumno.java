@@ -14,7 +14,7 @@ public class CuentaAlumno extends javax.swing.JInternalFrame implements MouseLis
     
     public CuentaAlumno() {
         initComponents();
-        jtbCuentaAlumno.addMouseListener(this);
+        
         jtbCuentaAlumno.setModel(control);
         
     }

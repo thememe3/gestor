@@ -5,17 +5,34 @@
  */
 package vista;
 
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+import modelo.profesor;
+
 /**
  *
  * @author ferna
  */
 public class CuentaProfesor extends javax.swing.JInternalFrame {
-
+public DefaultTableModel control = new DefaultTableModel();
     /**
      * Creates new form CuentaProfesor
      */
     public CuentaProfesor() {
         initComponents();
+        jtbCuentaProfesor.setModel(control);
+    }
+    
+    
+    public void llenarTabla(Vector<String> titulos,Vector<profesor> datos){
+        
+        for (String titulo : titulos){
+            control.addColumn(titulo);//con esto llena los titulos de la tabla
+        }
+        
+        for (profesor dato : datos) {
+            control.addRow(dato.toArray());
+        }
     }
 
     /**
@@ -32,7 +49,6 @@ public class CuentaProfesor extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbCuentaProfesor = new javax.swing.JTable();
         jtfBuscarCuentaProfesor = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jbnCuentaProfesorEje = new javax.swing.JButton();
 
@@ -57,9 +73,6 @@ public class CuentaProfesor extends javax.swing.JInternalFrame {
 
         jtfBuscarCuentaProfesor.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel4.setText("Gestión Cuenta - Profesores");
-
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel1.setText("Buscar");
 
@@ -78,9 +91,7 @@ public class CuentaProfesor extends javax.swing.JInternalFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4)
-                                .addComponent(jtfBuscarCuentaProfesor))))
+                            .addComponent(jtfBuscarCuentaProfesor)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(jbnActualizarCueProf)
@@ -88,7 +99,7 @@ public class CuentaProfesor extends javax.swing.JInternalFrame {
                         .addComponent(jbnBajaCueProf, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(42, 42, 42)
                         .addComponent(jbnCuentaProfesorEje)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jbnActualizarCueProf, jbnBajaCueProf, jbnCuentaProfesorEje});
@@ -96,8 +107,7 @@ public class CuentaProfesor extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addContainerGap(64, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtfBuscarCuentaProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -118,13 +128,12 @@ public class CuentaProfesor extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton jbnActualizarCueProf;
-    private javax.swing.JButton jbnBajaCueProf;
-    private javax.swing.JButton jbnCuentaProfesorEje;
-    private javax.swing.JTable jtbCuentaProfesor;
-    private javax.swing.JTextField jtfBuscarCuentaProfesor;
+    public javax.swing.JLabel jLabel1;
+    public javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JButton jbnActualizarCueProf;
+    public javax.swing.JButton jbnBajaCueProf;
+    public javax.swing.JButton jbnCuentaProfesorEje;
+    public javax.swing.JTable jtbCuentaProfesor;
+    public javax.swing.JTextField jtfBuscarCuentaProfesor;
     // End of variables declaration//GEN-END:variables
 }
