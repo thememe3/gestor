@@ -13,16 +13,26 @@ public class profesor {
    private int codigoProfesor;
    private String nombresProfesor;
    private String apellidosProfesor;
-   private String[] statusProfesorEje;
+   private String profesorEje;
    private String password;
 
     public profesor() {
         this.codigoProfesor=0;
         this.nombresProfesor="";
         this.apellidosProfesor="";
-        this.statusProfesorEje=new String[3];
+        this.profesorEje="";
         this.password="";
     }
+
+    public String getProfesorEje() {
+        return profesorEje;
+    }
+
+    public void setProfesorEje(String profesorEje) {
+        this.profesorEje = profesorEje;
+    }
+    
+    
 
     public String getPassword() {
         return password;
@@ -32,19 +42,6 @@ public class profesor {
         this.password = password;
     }
 
-    
-    
-    
-    public String[] getStatusProfesorEje() {
-        return statusProfesorEje;
-    }
-
-    public void setStatusProfesorEje(String[] statusProfesorEje) {
-        this.statusProfesorEje = statusProfesorEje;
-    }
-
-    
-    
     public int getCodigoProfesor() {
         return codigoProfesor;
     }
@@ -71,13 +68,13 @@ public class profesor {
     
     //se añaden los strings necesarios para llenar la tabla
       public String[] toArray(){
-        String[] datosArray = new String[4];
+        String[] datosArray = new String[5];
         datosArray[0] = String.valueOf(codigoProfesor);
         datosArray[1]=nombresProfesor;
         datosArray[2]=apellidosProfesor;
-        datosArray[3]=password;
-        
-        
+        datosArray[3]=profesorEje;
+        datosArray[4]=password;
+    
         return datosArray;
     }
       

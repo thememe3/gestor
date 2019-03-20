@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package vista;
 
 /**
@@ -36,8 +31,6 @@ public class MenuGeneral extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
-        jlbAlumno = new javax.swing.JLabel();
-        jlbProfesor = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jDesktopPane1 = new javax.swing.JDesktopPane();
 
@@ -134,12 +127,6 @@ public class MenuGeneral extends javax.swing.JFrame {
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jbnCalendario, jbnCuentas, jbnGestion});
 
-        jlbAlumno.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jlbAlumno.setText("Alumno");
-
-        jlbProfesor.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jlbProfesor.setText("Profesor");
-
         jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -152,24 +139,15 @@ public class MenuGeneral extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator2)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jlbAlumno)
-                        .addGap(33, 33, 33)
-                        .addComponent(jlbProfesor)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
+                        .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(104, 104, 104)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlbAlumno)
-                    .addComponent(jlbProfesor))
-                .addGap(18, 18, 18)
+                .addGap(137, 137, 137)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
                 .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE))
@@ -231,7 +209,5 @@ public class MenuGeneral extends javax.swing.JFrame {
     public javax.swing.JButton jbnCalendario;
     public javax.swing.JButton jbnCuentas;
     public javax.swing.JButton jbnGestion;
-    public javax.swing.JLabel jlbAlumno;
-    public javax.swing.JLabel jlbProfesor;
     // End of variables declaration//GEN-END:variables
 }

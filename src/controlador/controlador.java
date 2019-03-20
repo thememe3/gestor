@@ -1,3 +1,5 @@
+/*
+
 package controlador;
 
 import java.awt.Dimension;
@@ -45,8 +47,8 @@ public class controlador implements ActionListener, KeyListener, MouseListener,I
     CuentaAlumno cuenta;
     CuentaProfesor cuentaP;
     GestionAsignarFechas asig;
-    Vector<String> titulos;//vector para guardar los titulos en el internalFrame 
-    Vector<alumno> datos;//vector para guardar los datos en el internalFrame alumno
+    
+    
     Vector<profesor> datosP;//vector para guardar los datos en el internalFrame profesor
     Vector<grupo>datosG;//vector para guardar los datos en el internalFrame grupo
     String nombre,pass,nombreU,grado;
@@ -81,43 +83,6 @@ public class controlador implements ActionListener, KeyListener, MouseListener,I
     //base de datos
     
     //metodos alumno
-    public void consCuenAlumnos(){
-        //realset funciona para mandar el query
-         ResultSet alumnos = db.consultar("SELECT a.matricula, a.nombres, a.apellidos, a.statusAlumno, u.password FROM "
-                 + "Alumno a INNER JOIN Usuario u on a.IdUsuario=u.IdUsuario;");
-        Statement st;
-        try {
-            //hace el recorrido el next
-           if (alumnos.next()) {
-            Vector<String> columnas= new Vector<String>();//vector para guardar todos los nombres
-            Vector<alumno> datos = new Vector<alumno>();//vector para guardar todos los datos
-            columnas.add("Matricula");//añades las columnas osea el nombre de cada dato
-            columnas.add("Nombres");
-            columnas.add("Apellidos");
-            columnas.add("Status");
-            columnas.add("Password");
-            ResultSet alumnosTodos= db.consultar("SELECT a.matricula, a.nombres, a.apellidos, a.statusAlumno, u.password FROM"
-                    + " Alumno a INNER JOIN Usuario u on a.IdUsuario=u.IdUsuario;");
-            
-            while(alumnosTodos.next()){
-                alumno al = new alumno();
-                //guardas los datos en el modelo y en el get pones el tipo de dato que es 
-                al.setMatricula(alumnosTodos.getInt(1));
-                al.setNombre(alumnosTodos.getString(2));
-                al.setApellidos(alumnosTodos.getString(3));
-                al.setStatusAlumno(alumnosTodos.getByte(4));
-                al.setPassword(alumnosTodos.getString(5));
-                datos.add(al);//guarda los datos en el vector
-            }
-               titulos=columnas;//guardo los nombres en otro vector para sacarlos del metodo y ponerlos en el internal frame
-            this.datos=datos;//guardo los datos en otro vector para sacarlos del metodo y ponerlos en el internal frame
-            
-            
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se encontró");
-        }
-    }//fin de consulta alumno
     
     public void resPassword(String nombre, String pass){
         try {
@@ -165,77 +130,49 @@ public class controlador implements ActionListener, KeyListener, MouseListener,I
     
     //fin de metodos alumno
     
-    
-    
-    //inicio metodos profesor
-    
-     public void consCuenProfesor(){
+    public void consCuenAlumnos(){
         //realset funciona para mandar el query
-         ResultSet alumnos = db.consultar("SELECT p.codigoProfesor, p.nombresProfesor, p.apellidosProfesor, "
-                 + " u.password FROM "
-                 + "Profesor p INNER JOIN Usuario u on p.IdUsuario=u.IdUsuario;");
+         ResultSet alumnos = db.consultar("SELECT a.matricula, a.nombres, a.apellidos, a.statusAlumno, u.password FROM "
+                 + "Alumno a INNER JOIN Usuario u on a.IdUsuario=u.IdUsuario;");
         Statement st;
         try {
             //hace el recorrido el next
            if (alumnos.next()) {
             Vector<String> columnas= new Vector<String>();//vector para guardar todos los nombres
-            Vector<profesor> datosP = new Vector<profesor>();//vector para guardar todos los datos
-            columnas.add("Codigo");//añades las columnas osea el nombre de cada dato
+            Vector<alumno> datos = new Vector<alumno>();//vector para guardar todos los datos
+            columnas.add("Matricula");//añades las columnas osea el nombre de cada dato
             columnas.add("Nombres");
             columnas.add("Apellidos");
-            //columnas.add("Status");
+            columnas.add("Status");
             columnas.add("Password");
-            ResultSet profesoresTodos= db.consultar("SELECT p.codigoProfesor, p.nombresProfesor, p.apellidosProfesor, "
-                 + " u.password FROM "
-                 + "Profesor p INNER JOIN Usuario u on p.IdUsuario=u.IdUsuario;");
+            ResultSet alumnosTodos= db.consultar("SELECT a.matricula, a.nombres, a.apellidos, a.statusAlumno, u.password FROM"
+                    + " Alumno a INNER JOIN Usuario u on a.IdUsuario=u.IdUsuario;");
             
-            while(profesoresTodos.next()){
-                profesor pr = new profesor();
+            while(alumnosTodos.next()){
+                alumno al = new alumno();
                 //guardas los datos en el modelo y en el get pones el tipo de dato que es 
-                pr.setCodigoProfesor(profesoresTodos.getInt(1));
-                pr.setNombresProfesor(profesoresTodos.getString(2));
-                pr.setApellidosProfesor(profesoresTodos.getString(3));
-                pr.setPassword(profesoresTodos.getString(4));
-                //al.setPassword(alumnosTodos.getString(5));
-                datosP.add(pr);//guarda los datos en el vector
+                al.setMatricula(alumnosTodos.getInt(1));
+                al.setNombre(alumnosTodos.getString(2));
+                al.setApellidos(alumnosTodos.getString(3));
+                al.setStatusAlumno(alumnosTodos.getByte(4));
+                al.setPassword(alumnosTodos.getString(5));
+                datos.add(al);//guarda los datos en el vector
             }
                titulos=columnas;//guardo los nombres en otro vector para sacarlos del metodo y ponerlos en el internal frame
-            this.datosP=datosP;//guardo los datos en otro vector para sacarlos del metodo y ponerlos en el internal frame
+            this.datos=datos;//guardo los datos en otro vector para sacarlos del metodo y ponerlos en el internal frame
             
             
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se encontró");
         }
-    }//fin de consulta profesor
+    }//fin de consulta alumno
+    
+    //inicio metodos profesor
+    
      
-       public CuentaProfesor abrirProfesor(){
-          CuentaProfesor profesor= new CuentaProfesor();//creo el internal frame
-          profesor.setClosable(true);//lo hago cerrable
-          profesor.setMaximizable(true);//lo hago maximizable
-          profesor.setVisible(true);// lo hago visible
-          profesor.setTitle("Profesor");//añado un titulo al frame
-          menu.jDesktopPane1.add(profesor);//lo añado ald desktopPane
-          consCuenProfesor();//hago el metodo de consulta para guardar los datos y los titulos
-          profesor.llenarTabla(titulos, datosP);//metodo para llenar la tabla con los datos y titulos
-          //listener de botones
-          profesor.jtbCuentaProfesor.addMouseListener(this);
-          profesor.jbnActualizarCueProf.addActionListener(this);
-          profesor.jbnBajaCueProf.addActionListener(this);          
-          profesor.addInternalFrameListener(this);
-          return profesor;
-          
-      }//fin de crear nuevoProfesor
-
-       public void bajaCuentaProf(String nombre){
-        try {
-            db.actualizar("UPDATE Profesor SET statusProfesor=0 WHERE nombres='"+nombre+"';");
-            
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(menu, e.getMessage());
-        }
-    }//fin de dar de baja cuenta profesor              
+      
+      
        
       //fin de metodos profesor
         
@@ -279,7 +216,45 @@ public class controlador implements ActionListener, KeyListener, MouseListener,I
          catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se encontró");
         }
-    }//fin de consulta profesor
+    }//fin de llenado combo
+        
+        public void filtroTableConfechas(String query){
+        //realset funciona para mandar el query
+         ResultSet alumnos = db.consultar("SELECT g.grado  ;");
+        Statement st;
+        try {
+            //hace el recorrido el next
+           if (alumnos.next()) {
+            Vector<String> columnas= new Vector<String>();//vector para guardar todos los nombres
+            Vector<profesor> datosP = new Vector<profesor>();//vector para guardar todos los datos
+            columnas.add("Codigo");//añades las columnas osea el nombre de cada dato
+            columnas.add("Nombres");
+            columnas.add("Apellidos");
+            //columnas.add("Status");
+            columnas.add("Password");
+            ResultSet profesoresTodos= db.consultar("SELECT p.codigoProfesor, p.nombresProfesor, p.apellidosProfesor, "
+                 + " u.password FROM "
+                 + "Profesor p INNER JOIN Usuario u on p.IdUsuario=u.IdUsuario;");
+            
+            while(profesoresTodos.next()){
+                profesor pr = new profesor();
+                //guardas los datos en el modelo y en el get pones el tipo de dato que es 
+                pr.setCodigoProfesor(profesoresTodos.getInt(1));
+                pr.setNombresProfesor(profesoresTodos.getString(2));
+                pr.setApellidosProfesor(profesoresTodos.getString(3));
+                pr.setPassword(profesoresTodos.getString(4));
+                //al.setPassword(alumnosTodos.getString(5));
+                datosP.add(pr);//guarda los datos en el vector
+            }
+               titulos=columnas;//guardo los nombres en otro vector para sacarlos del metodo y ponerlos en el internal frame
+            this.datosP=datosP;//guardo los datos en otro vector para sacarlos del metodo y ponerlos en el internal frame
+            
+            
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se encontró");
+        }
+    }//fin de consulta grupo filtro
         
        //fin de fechas
        
@@ -389,6 +364,7 @@ public class controlador implements ActionListener, KeyListener, MouseListener,I
             GestionAsignarFechas asig=(GestionAsignarFechas)menu.jDesktopPane1.getSelectedFrame();
             if (source.equals(asig.jcbGrupo)) {
                 grado=(String)asig.jcbGrupo.getSelectedItem();
+                
             }
         } 
     }
@@ -500,3 +476,4 @@ label.setFont(font.deriveFont(attributes));
     
     
 }
+*/
