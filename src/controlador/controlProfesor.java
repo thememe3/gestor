@@ -93,12 +93,7 @@ public void consCuenProfesor(){
         }
     }//fin de consulta profesor
      
-     public CuentaProfesor abrirProfesor(JDesktopPane menu){
-          CuentaProfesor profesor= new CuentaProfesor();//creo el internal frame
-          
-          return profesor;
-          
-      }//fin de crear nuevoProfesor
+    
      
       public void statusProfesor(String nombre, String status){
         try {

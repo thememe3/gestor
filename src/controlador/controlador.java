@@ -84,29 +84,9 @@ public class controlador implements ActionListener, KeyListener, MouseListener,I
     
     //metodos alumno
     
-    public void resPassword(String nombre, String pass){
-        try {
-            db.actualizar("UPDATE Usuario SET password='"+pass+"' WHERE nombreUsuario='"+nombre+"';");
-            
-            if (nombre!=null) {
-                JOptionPane.showMessageDialog(menu, "Contraseña actualizada");
-                
-            }else{
-                JOptionPane.showMessageDialog(menu, "Por favor intente de nuevo");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(menu, e.getMessage());
-        }
-    }//fin del reinicio de password
+   
     
-    public void bajaCuenta(String nombre){
-        try {
-            db.actualizar("UPDATE Alumno SET statusAlumno=0 WHERE nombres='"+nombre+"';");
-            
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(menu, e.getMessage());
-        }
+  
     }//fin de dar de baja cuenta
       
     public CuentaAlumno abrirAlumno(){
@@ -130,43 +110,7 @@ public class controlador implements ActionListener, KeyListener, MouseListener,I
     
     //fin de metodos alumno
     
-    public void consCuenAlumnos(){
-        //realset funciona para mandar el query
-         ResultSet alumnos = db.consultar("SELECT a.matricula, a.nombres, a.apellidos, a.statusAlumno, u.password FROM "
-                 + "Alumno a INNER JOIN Usuario u on a.IdUsuario=u.IdUsuario;");
-        Statement st;
-        try {
-            //hace el recorrido el next
-           if (alumnos.next()) {
-            Vector<String> columnas= new Vector<String>();//vector para guardar todos los nombres
-            Vector<alumno> datos = new Vector<alumno>();//vector para guardar todos los datos
-            columnas.add("Matricula");//añades las columnas osea el nombre de cada dato
-            columnas.add("Nombres");
-            columnas.add("Apellidos");
-            columnas.add("Status");
-            columnas.add("Password");
-            ResultSet alumnosTodos= db.consultar("SELECT a.matricula, a.nombres, a.apellidos, a.statusAlumno, u.password FROM"
-                    + " Alumno a INNER JOIN Usuario u on a.IdUsuario=u.IdUsuario;");
-            
-            while(alumnosTodos.next()){
-                alumno al = new alumno();
-                //guardas los datos en el modelo y en el get pones el tipo de dato que es 
-                al.setMatricula(alumnosTodos.getInt(1));
-                al.setNombre(alumnosTodos.getString(2));
-                al.setApellidos(alumnosTodos.getString(3));
-                al.setStatusAlumno(alumnosTodos.getByte(4));
-                al.setPassword(alumnosTodos.getString(5));
-                datos.add(al);//guarda los datos en el vector
-            }
-               titulos=columnas;//guardo los nombres en otro vector para sacarlos del metodo y ponerlos en el internal frame
-            this.datos=datos;//guardo los datos en otro vector para sacarlos del metodo y ponerlos en el internal frame
-            
-            
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se encontró");
-        }
-    }//fin de consulta alumno
+    
     
     //inicio metodos profesor
     
@@ -180,81 +124,17 @@ public class controlador implements ActionListener, KeyListener, MouseListener,I
        
         public GestionAsignarFechas abrirAsignarFecha(){
           GestionAsignarFechas asig= new GestionAsignarFechas();//creo el internal frame
-          asig.setClosable(true);//lo hago cerrable
-          asig.setMaximizable(true);//lo hago maximizable
-          asig.setVisible(true);// lo hago visible
-          asig.setTitle("Fechas");//añado un titulo al frame
+          
           menu.jDesktopPane1.add(asig);//lo añado ald desktopPane
-          llenarComboGrupo();//hago el metodo de consulta para guardar los datos del grupo
-          asig.llenarCombo(datosG);//metodo para llenar la tabla con los datos y titulos
+          
           //listener de botones
           
           return asig;
        
         }
        
-        public void llenarComboGrupo(){
-        //realset funciona para mandar el query
-         
-        try {
-            //hace el recorrido el next
-            ResultSet gruposTodos= db.consultar("SELECT grado FROM Grupo;");
-            Vector<grupo> datosG = new Vector<grupo>();//vector para guardar todos los datos
-            while(gruposTodos.next()){
-                grupo gr = new grupo();
-                //guardas los datos en el modelo y en el get pones el tipo de dato que es 
-                gr.setGrado(gruposTodos.getString(1));
-                
-                datosG.add(gr);//guarda los datos en el vector
-                this.datosG=datosG;//guardo los datos en otro vector para sacarlos del metodo y ponerlos en el internal frame
-            }
-               
-            
-            
-            
-            }
-         catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se encontró");
-        }
-    }//fin de llenado combo
         
-        public void filtroTableConfechas(String query){
-        //realset funciona para mandar el query
-         ResultSet alumnos = db.consultar("SELECT g.grado  ;");
-        Statement st;
-        try {
-            //hace el recorrido el next
-           if (alumnos.next()) {
-            Vector<String> columnas= new Vector<String>();//vector para guardar todos los nombres
-            Vector<profesor> datosP = new Vector<profesor>();//vector para guardar todos los datos
-            columnas.add("Codigo");//añades las columnas osea el nombre de cada dato
-            columnas.add("Nombres");
-            columnas.add("Apellidos");
-            //columnas.add("Status");
-            columnas.add("Password");
-            ResultSet profesoresTodos= db.consultar("SELECT p.codigoProfesor, p.nombresProfesor, p.apellidosProfesor, "
-                 + " u.password FROM "
-                 + "Profesor p INNER JOIN Usuario u on p.IdUsuario=u.IdUsuario;");
-            
-            while(profesoresTodos.next()){
-                profesor pr = new profesor();
-                //guardas los datos en el modelo y en el get pones el tipo de dato que es 
-                pr.setCodigoProfesor(profesoresTodos.getInt(1));
-                pr.setNombresProfesor(profesoresTodos.getString(2));
-                pr.setApellidosProfesor(profesoresTodos.getString(3));
-                pr.setPassword(profesoresTodos.getString(4));
-                //al.setPassword(alumnosTodos.getString(5));
-                datosP.add(pr);//guarda los datos en el vector
-            }
-               titulos=columnas;//guardo los nombres en otro vector para sacarlos del metodo y ponerlos en el internal frame
-            this.datosP=datosP;//guardo los datos en otro vector para sacarlos del metodo y ponerlos en el internal frame
-            
-            
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se encontró");
-        }
-    }//fin de consulta grupo filtro
+       
         
        //fin de fechas
        

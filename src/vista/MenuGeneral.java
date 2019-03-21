@@ -23,12 +23,12 @@ public class MenuGeneral extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jbnCuentas = new javax.swing.JButton();
+        jbnAlumno = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jbnGestion = new javax.swing.JButton();
-        jbnCalendario = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jbnFechas = new javax.swing.JButton();
+        jbnProfesor = new javax.swing.JButton();
+        jbnProyectos = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
@@ -36,12 +36,12 @@ public class MenuGeneral extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jbnCuentas.setBackground(new java.awt.Color(49, 190, 184));
-        jbnCuentas.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jbnCuentas.setText("Cuentas");
-        jbnCuentas.addActionListener(new java.awt.event.ActionListener() {
+        jbnAlumno.setBackground(new java.awt.Color(49, 190, 184));
+        jbnAlumno.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jbnAlumno.setText("Alumno");
+        jbnAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbnCuentasActionPerformed(evt);
+                jbnAlumnoActionPerformed(evt);
             }
         });
 
@@ -53,17 +53,17 @@ public class MenuGeneral extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 179, 141));
         jLabel2.setText("Universidad Técologica de Jalisco");
 
-        jbnGestion.setBackground(new java.awt.Color(49, 190, 184));
-        jbnGestion.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jbnGestion.setText("Gestión");
+        jbnFechas.setBackground(new java.awt.Color(49, 190, 184));
+        jbnFechas.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jbnFechas.setText("Fechas");
 
-        jbnCalendario.setBackground(new java.awt.Color(49, 190, 184));
-        jbnCalendario.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jbnCalendario.setText("Calendario");
+        jbnProfesor.setBackground(new java.awt.Color(49, 190, 184));
+        jbnProfesor.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jbnProfesor.setText("Profesor");
 
-        jButton1.setBackground(new java.awt.Color(49, 190, 184));
-        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jButton1.setText("Proyectos");
+        jbnProyectos.setBackground(new java.awt.Color(49, 190, 184));
+        jbnProyectos.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jbnProyectos.setText("Proyectos");
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
@@ -84,10 +84,10 @@ public class MenuGeneral extends javax.swing.JFrame {
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jbnGestion, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jbnCalendario, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jbnCuentas, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jbnFechas, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jbnProyectos, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jbnProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jbnAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(9, 9, 9)))
                         .addGap(18, 18, 18))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -109,13 +109,13 @@ public class MenuGeneral extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(57, 57, 57)
-                .addComponent(jbnCuentas, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbnAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
-                .addComponent(jbnCalendario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbnProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
-                .addComponent(jbnGestion, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbnFechas, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbnProyectos, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(123, Short.MAX_VALUE))
             .addComponent(jSeparator1)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,7 +125,7 @@ public class MenuGeneral extends javax.swing.JFrame {
                     .addContainerGap(397, Short.MAX_VALUE)))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jbnCalendario, jbnCuentas, jbnGestion});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jbnAlumno, jbnFechas, jbnProfesor, jbnProyectos});
 
         jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
@@ -156,9 +156,9 @@ public class MenuGeneral extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbnCuentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbnCuentasActionPerformed
+    private void jbnAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbnAlumnoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jbnCuentasActionPerformed
+    }//GEN-LAST:event_jbnAlumnoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,7 +198,6 @@ public class MenuGeneral extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jButton1;
     public javax.swing.JDesktopPane jDesktopPane1;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel2;
@@ -206,8 +205,9 @@ public class MenuGeneral extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    public javax.swing.JButton jbnCalendario;
-    public javax.swing.JButton jbnCuentas;
-    public javax.swing.JButton jbnGestion;
+    public javax.swing.JButton jbnAlumno;
+    public javax.swing.JButton jbnFechas;
+    public javax.swing.JButton jbnProfesor;
+    public javax.swing.JButton jbnProyectos;
     // End of variables declaration//GEN-END:variables
 }

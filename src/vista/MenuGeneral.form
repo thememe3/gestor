@@ -62,10 +62,10 @@
                               <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jbnGestion" min="-2" pref="234" max="-2" attributes="0"/>
-                                      <Component id="jButton1" min="-2" pref="234" max="-2" attributes="0"/>
-                                      <Component id="jbnCalendario" alignment="0" min="-2" pref="234" max="-2" attributes="0"/>
-                                      <Component id="jbnCuentas" alignment="0" min="-2" pref="234" max="-2" attributes="0"/>
+                                      <Component id="jbnFechas" min="-2" pref="234" max="-2" attributes="0"/>
+                                      <Component id="jbnProyectos" min="-2" pref="234" max="-2" attributes="0"/>
+                                      <Component id="jbnProfesor" alignment="0" min="-2" pref="234" max="-2" attributes="0"/>
+                                      <Component id="jbnAlumno" alignment="0" min="-2" pref="234" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                               </Group>
@@ -97,13 +97,13 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                  <Component id="jbnCuentas" linkSize="1" min="-2" pref="41" max="-2" attributes="0"/>
+                  <Component id="jbnAlumno" linkSize="1" min="-2" pref="41" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                  <Component id="jbnCalendario" linkSize="1" min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="jbnProfesor" linkSize="1" min="-2" pref="34" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="jbnGestion" linkSize="1" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="jbnFechas" linkSize="1" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="jButton1" linkSize="1" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="jbnProyectos" linkSize="1" min="-2" pref="33" max="-2" attributes="0"/>
                   <EmptySpace pref="123" max="32767" attributes="0"/>
               </Group>
               <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
@@ -118,7 +118,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jbnCuentas">
+        <Component class="javax.swing.JButton" name="jbnAlumno">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b8" green="be" red="31" type="rgb"/>
@@ -126,10 +126,10 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cuentas"/>
+            <Property name="text" type="java.lang.String" value="Alumno"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbnCuentasActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbnAlumnoActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -163,7 +163,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="jbnGestion">
+        <Component class="javax.swing.JButton" name="jbnFechas">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b8" green="be" red="31" type="rgb"/>
@@ -171,13 +171,13 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Gesti&#xf3;n"/>
+            <Property name="text" type="java.lang.String" value="Fechas"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="jbnCalendario">
+        <Component class="javax.swing.JButton" name="jbnProfesor">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b8" green="be" red="31" type="rgb"/>
@@ -185,13 +185,13 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Calendario"/>
+            <Property name="text" type="java.lang.String" value="Profesor"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="jbnProyectos">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b8" green="be" red="31" type="rgb"/>
